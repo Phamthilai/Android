@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.laipham.listview.adapter.CustomAdapter;
 import com.example.laipham.listview.model.Contact;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class AddContactActivity extends Activity {
     EditText edtName, edtPhone;
     Button bntBack;
     ArrayList<Contact> arrAddContact = new ArrayList<>();
+    CustomAdapter customAdapper = null;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +33,14 @@ public class AddContactActivity extends Activity {
             public void onClick(View v) {
                 String txtName = edtName.getText().toString();
                 String txtPhone = edtPhone.getText().toString();
-                Contact contactAdd = new Contact(txtName, txtPhone, Color.GREEN);
-                arrAddContact.add(contactAdd);
+
+//                Contact contactAdd = new Contact(txtName, txtPhone, Color.GREEN);
+//                arrAddContact.add(contactAdd);
+//                customAdapper.notifyDataSetChanged();
+//                Log.d(TAG, "Hello1: " + arrAddContact.get(1).toString());
                 Intent in = new Intent();
-                in.putExtra("back", arrAddContact);
+                in.putExtra("name",txtName);
+                in.putExtra("phone",txtPhone);
                 setResult(30,in);
                 finish();
             }

@@ -55,8 +55,6 @@ public class CustomAdapter extends ArrayAdapter<Contact> {
         return convertView;
     }
 
-    public void setNotifyOnChange() {
-    }
 
     public class ViewHolder {
         TextView tvName, tvNumberPhone, tvAvatar;
